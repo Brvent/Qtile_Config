@@ -1,0 +1,108 @@
+"principal settings
+set mouse=r
+set clipboard=unnamed
+set showcmd
+set ruler
+set encoding=utf-8
+set showmatch
+set sw=2
+set number
+set relativenumber
+set tabstop=2
+set autoindent
+set laststatus=2
+
+call plug#begin('~/.vim/plugged')
+"gruvbox theme
+Plug 'morhetz/gruvbox'
+"tema de barra de estado
+Plug 'maximbaz/lightline-ale' 
+" Barra de estado
+Plug 'itchyny/lightline.vim'
+"escribe la contraparte de caracter especial
+Plug 'jiangmiao/auto-pairs'
+"arbol desplegable de navegacion
+Plug 'preservim/nerdtree' 
+"buscar a partir de dos caracteres
+Plug 'easymotion/vim-easymotion'
+"indica mediante simbolos, si se añade/elimina linea
+Plug 'mhinz/vim-signify'
+"agregar comentarios
+Plug 'scrooloose/nerdcommenter' 
+"Indent guides / sangría
+Plug 'nathanaelkane/vim-indent-guides'
+"Mostrar la sangria
+Plug 'yggdroot/indentline'
+"Autocompletado inteligente
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"vimtex
+Plug 'lervag/vimtex'
+"verilog y systemverilog
+Plug 'vhda/verilog_systemverilog.vim'
+call plug#end()
+
+"conf gruvbox (temas)
+syntax enable
+set background=dark
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
+
+"conf easymotion
+let mapleader=" "
+nmap <Leader>s <Plug>(easymotion-s2)
+
+"conf nerdtree
+let NERDTreeQuitOnOpen=0
+nmap <Leader>q : NERDTreeFind<CR>
+nmap <Leader>e : NERDTreeToggle<CR>
+
+"nerdtree navigation switching beetween tabs
+map  <C-l> :tabn<CR>
+map  <C-h> :tabp<CR>
+map  <C-n> :tabnew<CR>
+map  <C-x> :tabclose<CR>
+let g:NERDTreeWinSize=40
+
+
+"vim-indent guies conf col
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=red
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green
+
+"verilog
+let g:verilog_syntax_fold_lst = 'all'
+set foldmethod=syntax
+let g:SuperTabDefaultCompletionType = 'context'
+
+"Autocompletad coc.vim (extensiones)
+
+"autocompletado con tab
+inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
+inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
+
+" Remap <C-f> and <C-b> to scroll float windows/popups
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
+
+"nerd commeter 
+map <C-c> <Plug>NERDCommenterToggle 
+
+"vimtex
+set conceallevel=0
+let g:tex_conceal = ''
+
+"conf vim-polyglot 
+let g:polyglot_disabled=['sensible']
+
+"indentline
+let g:indentLine_setConceal=0
+
+"open terminal (vertical) vim 
+map <S-t> :vert term<CR>
+tnoremap <S-k> <C-\><C-n>:bd!<CR>
