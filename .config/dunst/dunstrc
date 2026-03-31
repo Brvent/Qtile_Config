@@ -1,0 +1,44 @@
+[global]
+    follow = keyboard
+    width = (0, 1500) 
+    height = ( 0,1500)
+    notification_limit = 5
+    origin = center
+    offset = (10, 50)
+    scale = 0 
+    progress_bar = true
+    progress_bar_height = 5
+    progress_bar_min_width = 50
+    progress_bar_max_width = 100
+    progress_bar_frame_width = 1
+    progress_bar_corner_radius = 0 
+    progress_bar_horizontal_alignment = right
+    icon_corner_radius = 0
+    indicate_hidden = true
+    transparency = 20 
+    separator_height = 2 
+    padding = 10
+    horizontal_padding = 10 
+    text_icon_padding = 10
+    frame_width = 2 
+    frame_color = "#DEDEDE"   
+    font = Monospace 10
+    markup = full
+    format = "<b>%s</b>\n%b"
+    word_wrap = yes
+[experimental]
+    per_monitor_dpi = true
+[urgency_low]
+    background = "#222222"
+    foreground = "#888888"
+    timeout = 5 
+[urgency_normal]
+    background = "#285577"
+    foreground = "#ffffff"
+    timeout = 10
+[urgency_critical]
+    background = "#900000"
+    foreground = "#ffffff"
+    frame_color = "#ff0000" 
+    timeout = 0
+   
