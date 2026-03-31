@@ -1,0 +1,21 @@
+#basic window configuration
+[window]
+padding.x=5
+padding.y=5
+
+decorations = "Full"
+opacity = 1
+
+#tipo de fuentes
+[font]
+bold_italic = { family = "noto-sants", style = "Regular" }
+size = 7.65
+offset = {x=0, y=-2} 
+glyph_offset = { x = 0, y =0}
+
+#colores
+[colors]
+ [colors.primary]
+ foreground = "#ffffff"
+ background = "#222222"
+ bright_foreground = "#ff2222"
